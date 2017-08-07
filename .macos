@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# Wipe all (default) app icons from the Dock
+defaults write com.apple.dock persistent-apps -array
+killall Dock
+
+# Set a blazingly fast keyboard repeat rate.
+defaults write -g KeyRepeat -int 2; # Key Repeat
+defaults write -g InitialKeyRepeat -int 15; # Delay Until Repeat
+
+# Enable Full Keyboard Access for all controls
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# Setup trackpad
+# 1. Add a check to App Expose.
+# 2. Turn on Three finger drag in Accessibility.
+
+# Show percentage in battery status
+defaults write com.apple.menuextra.battery ShowPercent -bool true
+
+# Finder: show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# Finder: show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+ # Use column view in all Finder windows by default
+defaults write com.apple.Finder FXPreferredViewStyle -string "clmv"
+
+# Shortcuts: Turn off "Show Spotlight search"
+defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 64 "<dict><key>enabled</key><false/></dict>"
+
+#-----------------------------------------------------------------------------
+# ZSH
+#-----------------------------------------------------------------------------
+
+# Install Homebrew.
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" </dev/null
+brew update
+
+# Install Zsh.
+brew install zsh
+
+# Install Prezto (a configuration framework for Zsh).
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+
+# Create a new Zsh configuratino by creating symbolic link from .zprezto to home folder.
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
+
+# Set Zsh as your default shell:
+chsh -s /bin/zsh
+
+# Make Zsh active
+source ~/.zshrc
+
+# Get Homebrew-Cask
+brew tap caskroom/cask
+
+# Install macOS apps
+brew caskroom install google-chrome
+brew caskroom install 1password
+brew caskroom install dropbox
+brew caskroom install alfred
+brew caskroom install iterm2
+brew caskroom install steam
+brew caskroom install sourcetree
+brew caskroom install visual-studio-code
+brew caskroom install slack
+brew caskroom install vlc
+
+# TODO: Set default application on Dock
+
+
