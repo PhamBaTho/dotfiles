@@ -47,7 +47,17 @@ brew cask install vlc
 ```
 brew install z
 ```
-- Put the following line in $HOME/.zshrc:
+- Add the following to .zshrc:
 ```
 . /usr/local/etc/profile.d/z.sh
+```
+
+# Auto-suggestion for zsh
+- Install with brew:
+```
+brew install zsh-autosuggestions
+```
+- Add the following to .zshrc:
+```
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 ```
