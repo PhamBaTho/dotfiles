@@ -51,15 +51,6 @@ brew update
 # Install Zsh.
 brew install zsh
 
-# Install Prezto (a configuration framework for Zsh).
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-
-# Create a new Zsh configuratino by creating symbolic link from .zprezto to home folder.
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-done
-
 # Set Zsh as your default shell:
 chsh -s /bin/zsh
 
@@ -70,16 +61,14 @@ source ~/.zshrc
 brew tap caskroom/cask
 
 # Install macOS apps
-brew caskroom install google-chrome
-brew caskroom install 1password
-brew caskroom install dropbox
-brew caskroom install alfred
-brew caskroom install iterm2
-brew caskroom install steam
-brew caskroom install sourcetree
-brew caskroom install visual-studio-code
-brew caskroom install slack
-brew caskroom install vlc
+brew cask install google-chrome
+brew cask install 1password
+brew cask install dropbox
+brew cask install alfred
+brew cask install sourcetree
+brew cask install visual-studio-code
+brew cask install slack
+brew cask install vlc
 
 # TODO: Set default application on Dock
 
