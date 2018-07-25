@@ -1,27 +1,8 @@
-# ZSH
-## Install Zsh
-```
-brew install zsh
-```
-## Set Zsh as your default shell:
-```
-chsh -s /bin/zsh
-```
-
-## Install oh-my-zsh:
-```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
-
-## Make Zsh active (optional):
-```
-source ~/.zshrc
-```
-
 # Homebrew
 ## Install Homebrew
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" </dev/null
+echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.zshrc
 brew update
 ```
 
@@ -42,22 +23,79 @@ brew cask install slack
 brew cask install vlc
 ```
 
+# ZSH
+## Install Zsh
+```
+brew install zsh
+```
+## Set Zsh as your default shell:
+```
+chsh -s /bin/zsh
+```
+
+## Install oh-my-zsh:
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+## Make Zsh active (optional):
+```
+source ~/.zshrc
+```
+
 # z command:
-- Install with brew:
 ```
 brew install z
 ```
-- Add the following to .zshrc:
+
+Add the following to .zshrc:
 ```
 . /usr/local/etc/profile.d/z.sh
 ```
 
 # Auto-suggestion for zsh
-- Install with brew:
 ```
 brew install zsh-autosuggestions
 ```
-- Add the following to .zshrc:
+
+Add the following to .zshrc:
 ```
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+```
+# Cocoapods:
+```
+brew install rbenv
+```
+
+Add the following to .zshrc:
+```
+eval "$(rbenv init -)"
+```
+
+Then restart terminal.
+```
+rbenv install 2.5.1
+rbenv global 2.5.1
+gem install cocoapods
+```
+
+# Node:
+```
+brew install node
+```
+
+# n - Node version management:
+```
+npm install -g n
+cd /usr/local
+sudo mkdir n
+sudo chown -R $(whoami) /usr/local/n
+n latest
+n lts
+```
+
+# React Native:
+```
+brew install watchman
+npm install -g react-native-cli
 ```
