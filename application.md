@@ -39,8 +39,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ```
 
 ## Add path for homebrew:
+```
 echo '# Homebrew
 export PATH="/usr/local/sbin:$PATH"' >> ~/.zshrc
+```
 
 ## Make Zsh active (optional):
 ```
