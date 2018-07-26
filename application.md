@@ -2,7 +2,7 @@
 ## Install Homebrew
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" </dev/null
-echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.zshrc
+
 brew update
 ```
 
@@ -37,6 +37,10 @@ chsh -s /bin/zsh
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
+
+## Add path for homebrew:
+echo '# Homebrew
+export PATH="/usr/local/sbin:$PATH"' >> ~/.zshrc
 
 ## Make Zsh active (optional):
 ```
