@@ -1,9 +1,15 @@
+# How to restore ssh
+- Copy `id_rsa` and `id_rsa.pub` file to `~/.ssh` folder
+- Run:
+```
+sudo chmod 600 ~/.ssh/id_rsa
+sudo chmod 600 ~/.ssh/id_rsa.pub
+```
+
 # Homebrew
 ## Install Homebrew
 ```
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" </dev/null
-
-brew update
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 ## Get Homebrew-Cask
@@ -13,40 +19,19 @@ brew tap caskroom/cask
 
 ## Install macOS apps
 ```
-brew cask install google-chrome
-brew cask install 1password
-brew cask install dropbox
-brew cask install alfred
-brew cask install sourcetree
-brew cask install visual-studio-code
-brew cask install slack
-brew cask install vlc
+brew install google-chrome
+brew install 1password
+brew install alfred
+brew install sourcetree
+brew install visual-studio-code
+brew install slack
+brew install vlc
 ```
 
 # ZSH
-## Install Zsh
-```
-brew install zsh
-```
-## Set Zsh as your default shell:
-```
-chsh -s /bin/zsh
-```
-
 ## Install oh-my-zsh:
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
-
-## Add path for homebrew:
-```
-echo '# Homebrew
-export PATH="/usr/local/sbin:$PATH"' >> ~/.zshrc
-```
-
-## Make Zsh active (optional):
-```
-source ~/.zshrc
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 # z command:
@@ -58,7 +43,6 @@ Add the following to .zshrc:
 ```
 . /usr/local/etc/profile.d/z.sh
 ```
-
 # Auto-suggestion for zsh
 ```
 brew install zsh-autosuggestions
@@ -90,7 +74,7 @@ gem install cocoapods
 brew install node
 ```
 
-# n - Node version management:
+## n - Node version management:
 ```
 npm install -g n
 cd /usr/local
