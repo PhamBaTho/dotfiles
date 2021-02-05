@@ -26,6 +26,7 @@ brew install sourcetree
 brew install visual-studio-code
 brew install slack
 brew install vlc
+brew install scroll-reverser
 ```
 
 # ZSH
