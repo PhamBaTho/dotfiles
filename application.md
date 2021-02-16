@@ -75,6 +75,7 @@ rbenv global 2.5.1
 ```
 
 Install CocoaPods
+```
 gem install cocoapods
 ```
 
