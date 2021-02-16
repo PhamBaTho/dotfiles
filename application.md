@@ -64,9 +64,17 @@ eval "$(rbenv init -)"
 ```
 
 Then restart terminal.
+
+Install Ruby version
 ```
 rbenv install 2.5.1
+```
+Sets the global version of Ruby
+```
 rbenv global 2.5.1
+```
+
+Install CocoaPods
 gem install cocoapods
 ```
 
